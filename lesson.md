@@ -1,7 +1,7 @@
 # Lesson — L03 Supervised Learning Foundations
 
 > **Chapter 3 of the NorthStar Retail story.** *Sarah Chen · Customer Experience Analyst · Day 4.*
-> Marcus's question after Sarah's end-of-day presentation — *"Can you train your own model on NorthStar data?"* — is the brief for the day. Sarah has `northstar_churn.csv`: 10,000 customers, 11 features, one target column (`churned`), and one day to ship a working classifier.
+> Marcus's question after Sarah's end-of-day presentation — *"Can you train your own model on NorthStar data?"* — is the brief for the day. Sarah has `northstar_churn.csv`: 10,000 customers, 10 features, one target column (`churned`), and one day to ship a working classifier.
 
 This document is a **short reference** — the lesson itself is taught in the notebooks. Read it for orientation before class, then come back for the takeaways, the threshold-choice checklist, the review questions, and the course map.
 
@@ -30,7 +30,7 @@ Marcus's L02-closing question — *can you build us a model from NorthStar's own
 
 ## Key takeaways
 
-1. **A supervised-ML week is 60–70% preprocessing.** Missing values, scales, categories, leakage. Most of the bugs that "look like the model is bad" are actually preprocessing bugs.
+1. **A supervised-ML project is 60–70% preprocessing.** Missing values, scales, categories, leakage. Most of the bugs that "look like the model is bad" are actually preprocessing bugs.
 2. **Always wrap preprocessing in a sklearn `Pipeline` + `ColumnTransformer`.** Same transformation at train and inference, zero leakage from test into train, zero copy-paste drift between fit and predict code.
 3. **Z-score scale numerical features; one-hot encode categorical ones.** Skip scaling for tree models, but be explicit about it. Use a "was-missing" flag when missingness itself is informative.
 4. **Split with `stratify=y` on imbalanced data, then k-fold cross-validate on the training portion only.** The held-out test set stays untouched until the final model is chosen.
